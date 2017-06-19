@@ -35,6 +35,31 @@ class LoginSpider(BaseSpider):
          childno = 3
          self.driver.find_element_by_name("num_ind").send_keys(adultno)
          self.driver.find_element_by_name("num_child").send_keys(childno)
+		 
+         self.driver.find_elements_by_css_selector("input[type='radio'][value='N']")[0].click()
+		 
+         fmdd = "1"
+         fmmm = "8"
+         fmyyyy = "2017"
+         todd = "10"
+         tomm = "8"
+         toyyyy = "2017"
+#         self.driver.find_element_by_xpath("//select[@name='trvl_comm_date_dd']/option[@value='" + fmdd +"']").click()
+#         self.driver.find_element_by_xpath("//select[@name='trvl_comm_date_mm']/option[@value='" + fmmm +"']").click()
+#         self.driver.find_element_by_xpath("//select[@name='trvl_comm_date_yyyy']/option[@value='" + fmyyyy +"']").click()
+         
+##         self.driver.find_element_by_xpath("//select[@name='trvl_expy_date_dd']/option[@value='" + todd +"']").click()
+#         self.driver.find_element_by_xpath("//select[@name='trvl_expy_date_mm']/option[@value='" + tomm +"']").click()
+#         self.driver.find_element_by_xpath("//select[@name='trvl_expy_date_yyyy']/option[@value='" + toyyyy +"']").click()
+
+         self.driver.find_element_by_name("trvl_comm_date_dd").send_keys(fmdd)
+         self.driver.find_element_by_name("trvl_comm_date_mm").send_keys(fmmm)
+         self.driver.find_element_by_name("trvl_comm_date_yyyy").send_keys(fmyyyy)
+         self.driver.find_element_by_name("trvl_expy_date_dd").send_keys(todd)
+         self.driver.find_element_by_name("trvl_expy_date_mm").send_keys(tomm)
+         self.driver.find_element_by_name("trvl_expy_date_yyyy").send_keys(toyyyy)
+		 
+         self.driver.find_element_by_link_text('Quote').click()
          sleep(randint(3,5))
 		 
 					
