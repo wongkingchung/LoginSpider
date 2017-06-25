@@ -27,10 +27,10 @@ class LoginSpider(BaseSpider):
          username.send_keys("UICF1SUC")
          password.send_keys("Convoy168")
          self.driver.find_element_by_xpath("//input[@type='button']").click()
-         sleep(randint(3,5))
+#         sleep(randint(3,5))
 		 
          self.driver.find_element_by_link_text('Travel').click()
-         sleep(randint(3,5))		 
+#         sleep(randint(3,5))		 
          adultno = 2
          childno = 3
          self.driver.find_element_by_name("num_ind").send_keys(adultno)
@@ -59,7 +59,7 @@ class LoginSpider(BaseSpider):
          self.driver.find_element_by_name("trvl_expy_date_mm").send_keys(tomm)
          self.driver.find_element_by_name("trvl_expy_date_yyyy").send_keys(toyyyy)
 		 
-         self.driver.find_element_by_link_text('Quote').click()
+         self.driver.find_element_by_link_text(' Quote ').click()
          sleep(randint(3,5))
 		 
 					
