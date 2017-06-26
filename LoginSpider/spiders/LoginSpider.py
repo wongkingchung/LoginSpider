@@ -5,7 +5,8 @@ from selenium import webdriver
 from time import sleep
 from random import randint
 from selenium.common.exceptions import NoSuchElementException
-
+from scrapy import Selector
+from scrapy.http import TextResponse 
 
 class LoginSpider(BaseSpider):
     name = 'loginspider'
@@ -60,9 +61,18 @@ class LoginSpider(BaseSpider):
          self.driver.find_element_by_name("trvl_expy_date_yyyy").send_keys(toyyyy)
 		 
          self.driver.find_element_by_link_text(' Quote ').click()
-         sleep(randint(3,5))
+
+ #        yield Request(self.driver.current_url, callback=self.extract_price)
+         resp = TextResponse(url=self.driver.current_url, body=self.driver.page_source, encoding='utf-8')
+         price = resp.xpath('.//span[@class="dollar"]/text()').extract()
+         print price
+
 		 
-					
+
+    def extract_price(self, response):
+         self.driver.get(response.url)
+            
+        
     def after_login(self, response):
         # check login succeed before going on
 		
