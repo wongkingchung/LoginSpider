@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
 import scrapy
 from LoginSpider.items import LoginspiderItem
 from scrapy.spiders import BaseSpider
@@ -101,6 +102,8 @@ class LoginSpider(BaseSpider):
                  items['price1'] = price[0]
                  items['price2'] = price[1]
                  print price
+
+                 yield items
                  
                  sleep(randint(1,2)) 
                  self.driver.find_element_by_link_text(' Re-Quote ').click()

@@ -12,5 +12,5 @@ class LoginspiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     price1 = scrapy.Field()
-    price2 = scrapy.Fidld()
+    price2 = scrapy.Field()
     
